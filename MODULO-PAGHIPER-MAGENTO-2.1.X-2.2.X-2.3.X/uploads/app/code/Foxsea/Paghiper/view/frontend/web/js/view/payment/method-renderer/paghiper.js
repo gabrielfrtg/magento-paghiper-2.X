@@ -24,7 +24,7 @@ define([
                 return 'foxsea_paghiper';
             },
             isActive: function() {
-                return true;
+                return false;
             },
             getData: function () {
                 return {
