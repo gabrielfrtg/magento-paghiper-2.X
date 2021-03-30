@@ -181,12 +181,12 @@ class Order extends \Magento\Framework\App\Helper\AbstractHelper {
 
         for ($t = 9; $t < 11; $t++) {
             for ($d = 0, $c = 0; $c < $t; $c++) {
-                $d += $taxvat{$c} * (($t + 1) - $c);
+                $d += $taxvat[$c] * (($t + 1) - $c);
             }
 
             $d = ((10 * $d) % 11) % 10;
 
-            if ($taxvat{$c} != $d) {
+            if ($taxvat[$c] != $d) {
                 return false;
             }
         }
@@ -203,24 +203,24 @@ class Order extends \Magento\Framework\App\Helper\AbstractHelper {
         }
 
         for ($i = 0, $j = 5, $soma = 0; $i < 12; $i++) {
-            $soma += $taxvat{$i} * $j;
+            $soma += $taxvat[$i] * $j;
             $j = ($j == 2) ? 9 : $j - 1;
         }
 
         $resto = $soma % 11;
 
-        if ($taxvat{12} != ($resto < 2 ? 0 : 11 - $resto)) {
+        if ($taxvat[12] != ($resto < 2 ? 0 : 11 - $resto)) {
             return false;
         }
 
         for ($i = 0, $j = 6, $soma = 0; $i < 13; $i++) {
-            $soma += $taxvat{$i} * $j;
+            $soma += $taxvat[$i] * $j;
             $j = ($j == 2) ? 9 : $j - 1;
         }
 
         $resto = $soma % 11;
 
-        return $taxvat{13} == ($resto < 2 ? 0 : 11 - $resto);
+        return $taxvat[13] == ($resto < 2 ? 0 : 11 - $resto);
     }
 
     private function log($msg){
