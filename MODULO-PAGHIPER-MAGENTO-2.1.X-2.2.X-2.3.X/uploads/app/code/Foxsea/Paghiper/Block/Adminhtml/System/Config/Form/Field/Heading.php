@@ -10,7 +10,7 @@ class Heading extends Field
     /**
      * @var string
      */
-    protected $_template = 'system/config/form/field/heading.phtml';
+    // protected $_template = 'system/config/form/field/heading.phtml';
 
     /**
      * @var ModuleConfigInterface
