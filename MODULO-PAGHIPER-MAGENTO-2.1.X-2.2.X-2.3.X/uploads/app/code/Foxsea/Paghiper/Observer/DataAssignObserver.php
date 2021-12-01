@@ -24,8 +24,7 @@ class DataAssignObserver extends AbstractDataAssignObserver {
 
         if ($data->getDataByKey('additional_data') !== null){
             $additional = $data->getDataByKey('additional_data');
-            // if (isset($additional['paghiper_taxvat'])) {
-            if ('' !== $additional['paghiper_taxvat']) {
+            if (isset($additional['paghiper_taxvat']) && '' !== $additional['paghiper_taxvat']) {
                 $paymentInfo->setAdditionalInformation(
                     'paghiper_taxvat',
                     $additional['paghiper_taxvat']
